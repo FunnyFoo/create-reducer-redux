@@ -5,7 +5,7 @@
   "author": "cesar2535 <cesar6134@gmail.com>",
   "license": "MIT",
   "main": "src/index.js",
-  "module": "es/index.js",
+  "module": "es/create-reducer-redux.js",
   "scripts": {
     "build:commonjs": "cross-env NODE_ENV=cjs rollup -c -o lib/create-reducer-redux.js",
     "build:es": "cross-env BABEL_ENV=es NODE_ENV=es rollup -c -o es/create-reducer-redux.js",
