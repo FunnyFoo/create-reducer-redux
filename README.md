@@ -1,9 +1,18 @@
 # create-reducer-redux
 
-A redux reducer generate function
+A redux reducer generator function
+
+## Install
+```bash
+npm install --save @funnyfoo/create-reducer-redux
+# or
+yarn add @funnyfoo/create-reducer-redux
+```
 
 ## Usage
 ```js
+import createReducer from '@funnyfoo/create-reducer-redux'
+
 const Types = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
