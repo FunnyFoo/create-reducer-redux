@@ -53,3 +53,16 @@ reducer(undefined, addX(12))  // => 12
 reducer(12, decrement())  // => 11
 
 ```
+
+## API
+
+### `createReducer(pairs, initialState)`
+Create a redux reducer with the initial state and a list of tuple of action type and handler
+
+#### Arguments
+`{Array} pairs` - A list of [ `ActionType`, `Handler` ], `Handler` is a function with the two arguments `state`, `action`.
+
+`{Any} initialState` - the initial state for the reducer
+
+#### Returns
+`{Function}`: returns a function with two arguments `state`, `action`
