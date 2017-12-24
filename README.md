@@ -1,4 +1,7 @@
 # create-reducer-redux
+[![npm version](https://img.shields.io/npm/v/@funnyfoo/create-reducer-redux.svg)](https://www.npmjs.com/package/@funnyfoo/create-reducer-redux)
+[![license](https://img.shields.io/npm/l/@funnyfoo/create-reducer-redux.svg)](https://github.com/FunnyFoo/create-reducer-redux/blob/master/LICENSE)
+[![dependencies status](https://david-dm.org/funnyfoo/create-reducer-redux.svg)](https://david-dm.org/funnyfoo/create-reducer-redux)
 
 A redux reducer generator function
 
