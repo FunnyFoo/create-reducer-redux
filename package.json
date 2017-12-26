@@ -7,9 +7,11 @@
   "main": "lib/create-reducer-redux.js",
   "module": "es/create-reducer-redux.js",
   "files": [
-    "dist",
-    "lib",
-    "es",
+    "LICENSE",
+    "README.md",
+    "dist/",
+    "lib/",
+    "es/",
     "src"
   ],
   "scripts": {
