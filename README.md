@@ -1,6 +1,9 @@
 # create-reducer-redux
 
 <p>
+  <a href="https://circleci.com/gh/FunnyFoo/create-reducer-redux">
+    <img src="https://img.shields.io/circleci/project/github/FunnyFoo/create-reducer-redux.svg?style=flat-square" alt="build status" />
+  </a>
   <a href="https://www.npmjs.com/package/@funnyfoo/create-reducer-redux">
     <img src="https://img.shields.io/npm/v/@funnyfoo/create-reducer-redux.svg?style=flat-square" alt="npm version" />
   </a>
