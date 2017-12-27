@@ -4,6 +4,10 @@
   "description": "A redux reducer generate function",
   "author": "cesar2535 <cesar6134@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FunnyFoo/create-reducer-redux.git"
+  },
   "main": "lib/create-reducer-redux.js",
   "module": "es/create-reducer-redux.js",
   "files": [
