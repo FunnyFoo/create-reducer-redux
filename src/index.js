@@ -14,12 +14,18 @@ const createReducer = function(pairs, initialState) {
     Array.isArray(pairs),
     "The pairs (first argument) must be a list of [actionType, handler]"
   )
-  return function(state = initialState, action) {
+  return function(state = initialState, action, ...rest) {
     let idx = 0
     while (idx < pairs.length) {
-      const type = pairs[idx][0]
+      const tuple = pairs[idx]
+      invariant(
+        Array.isArray(tuple),
+        "The elemnt of the pairs must be a tuple with action type and handler"
+      )
+      const type = tuple[0]
       if (type === action.type) {
-        return pairs[idx][1].apply(this, [state, action])
+        const handler = tuple[1]
+        return handler.apply(this, [state, action, ...rest])
       }
       idx += 1
     }
