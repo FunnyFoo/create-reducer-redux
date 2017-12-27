@@ -1,19 +1,9 @@
 # create-reducer-redux
 
-<p>
-  <a href="https://circleci.com/gh/FunnyFoo/create-reducer-redux">
-    <img src="https://img.shields.io/circleci/project/github/FunnyFoo/create-reducer-redux.svg?style=flat-square" alt="build status" />
-  </a>
-  <a href="https://www.npmjs.com/package/@funnyfoo/create-reducer-redux">
-    <img src="https://img.shields.io/npm/v/@funnyfoo/create-reducer-redux.svg?style=flat-square" alt="npm version" />
-  </a>
-  <a href="https://github.com/FunnyFoo/create-reducer-redux/blob/master/LICENSE">
-    <img src="https://img.shields.io/npm/l/@funnyfoo/create-reducer-redux.svg?style=flat-square" alt="license" />
-  </a>
-  <a href="https://david-dm.org/funnyfoo/create-reducer-redux">
-    <img src="https://david-dm.org/funnyfoo/create-reducer-redux.svg?style=flat-square" alt="dependencies status" />
-  </a>
-</p>
+[![build status](https://img.shields.io/circleci/project/github/FunnyFoo/create-reducer-redux.svg?style=flat-square)](https://circleci.com/gh/FunnyFoo/create-reducer-redux)
+[![npm version](https://img.shields.io/npm/v/@funnyfoo/create-reducer-redux.svg?style=flat-square)](https://www.npmjs.com/package/@funnyfoo/create-reducer-redux)
+[![license](https://img.shields.io/npm/l/@funnyfoo/create-reducer-redux.svg?style=flat-square)](https://github.com/FunnyFoo/create-reducer-redux/blob/master/LICENSE)
+[![dependencies status](https://david-dm.org/funnyfoo/create-reducer-redux.svg?style=flat-square)](https://david-dm.org/funnyfoo/create-reducer-redux)
 
 A redux reducer generator function
 
