@@ -2,13 +2,13 @@
 
 <p>
   <a href="https://www.npmjs.com/package/@funnyfoo/create-reducer-redux">
-    <img src="https://img.shields.io/npm/v/@funnyfoo/create-reducer-redux.svg" alt="npm version" />
+    <img src="https://img.shields.io/npm/v/@funnyfoo/create-reducer-redux.svg?style=flat-square" alt="npm version" />
   </a>
   <a href="https://github.com/FunnyFoo/create-reducer-redux/blob/master/LICENSE">
-    <img src="https://img.shields.io/npm/l/@funnyfoo/create-reducer-redux.svg" alt="license" />
+    <img src="https://img.shields.io/npm/l/@funnyfoo/create-reducer-redux.svg?style=flat-square" alt="license" />
   </a>
   <a href="https://david-dm.org/funnyfoo/create-reducer-redux">
-    <img src="https://david-dm.org/funnyfoo/create-reducer-redux.svg" alt="dependencies status" />
+    <img src="https://david-dm.org/funnyfoo/create-reducer-redux.svg?style=flat-square" alt="dependencies status" />
   </a>
 </p>
 
