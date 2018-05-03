@@ -1,4 +1,5 @@
 import invariant from "invariant"
+import { isRegExp } from 'lodash'
 /**
  * @func
  * @sig ([[ String | Symbol, (state, action) -> state ]], InitialState) -> (state, action) -> state
@@ -23,7 +24,11 @@ const createReducer = function(pairs, initialState) {
         "The elemnt of the pairs must be a tuple with action type and handler"
       )
       const type = tuple[0]
-      if (type === action.type) {
+      const cond = isRegExp(type)
+        ? type.test(action.type)
+        : type === action.type
+
+      if (cond) {
         const handler = tuple[1]
         return handler.apply(this, [state, action, ...rest])
       }
