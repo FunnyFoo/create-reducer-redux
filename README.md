@@ -5,7 +5,7 @@
 [![license](https://img.shields.io/npm/l/@funnyfoo/create-reducer-redux.svg?style=flat-square)](https://github.com/FunnyFoo/create-reducer-redux/blob/master/LICENSE)
 [![dependencies status](https://david-dm.org/funnyfoo/create-reducer-redux.svg?style=flat-square)](https://david-dm.org/funnyfoo/create-reducer-redux)
 
-A redux reducer generator function
+A redux reducer using the tuple like `[ type, handler ]` instead of `switch` statement.
 
 ## Install
 ```bash
@@ -54,8 +54,10 @@ const reducer = createReducer([
   [ Types.ADDITION, (state, action) => state + action.payload ],
 ], initialState)
 
-reducer(undefined, addX(12))  // => 12
-reducer(12, decrement())  // => 11
+let state;
+state = reducer(state, addX(12))  // => 12
+state = reducer(state, decrement())  // => 11
+state = reducer(state, { type: 'other' })  // => 11
 
 ```
 
