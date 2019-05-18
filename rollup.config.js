@@ -24,7 +24,7 @@ if (ENV === 'development' || ENV === 'production') {
       jsnext: true,
       main: true
     }),
-    typescript(),
+    typescript({ module: 'CommonJS' }),
     commonjs({ extensions: ['.js', '.ts'] }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(ENV)
