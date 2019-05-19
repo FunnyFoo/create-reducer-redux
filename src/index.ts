@@ -1,9 +1,9 @@
 import invariant from 'invariant'
 import { isRegExp } from 'lodash'
 
-type ActionType = RegExp & string
+type ActionType = string | RegExp
 type Action = {
-  type: ActionType
+  type: string
 }
 type Reducer<T> = (state: T, action: Action) => T
 type Pair<T> = [ActionType, Reducer<T>]
@@ -20,12 +20,16 @@ type Pair<T> = [ActionType, Reducer<T>]
 const createReducer = function<T>(
   initialState: T,
   pairs: Pair<T>[]
-): Reducer<T> {
+): (state: T | undefined, action: Action) => T {
   invariant(
     Array.isArray(pairs),
     'The pairs (first argument) must be a list of [actionType, handler]'
   )
-  return function(this: void, state = initialState, action: Action) {
+  return function(
+    this: void,
+    state: T | undefined = initialState,
+    action: Action
+  ) {
     let idx = 0
     while (idx < pairs.length) {
       const tuple = pairs[idx]
