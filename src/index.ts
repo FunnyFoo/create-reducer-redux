@@ -10,7 +10,7 @@ type Pair<T> = [ActionType, Reducer<T>]
 
 /**
  * @func
- * @sig ([[ String | Symbol, (state, action) -> state ]], InitialState) -> (state, action) -> state
+ * @sig ([[ String | RegExp, (state, action) -> state ]], InitialState) -> (state, action) -> state
  * @param {Any} initialState - the initial state for reducer
  * @param {Array} pairs - A list of [actionType, handler]
  * @return {Function} (state, action) -> state
