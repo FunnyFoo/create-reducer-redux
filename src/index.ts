@@ -1,14 +1,5 @@
 import invariant from 'invariant'
 import { isRegExp } from 'lodash'
-/**
- * @func
- * @sig ([[ String | Symbol, (state, action) -> state ]], InitialState) -> (state, action) -> state
- * @param {Array} pairs - A list of [actionType, handler]
- * @param {Any} initialState - the initial state for reducer
- * @return {Function} (state, action) -> state
- * @example reducer.js
- * inspired by RamdaJS function "cond"
- */
 
 type ActionType = RegExp & string
 type Action = {
@@ -17,7 +8,19 @@ type Action = {
 type Reducer<T> = (state: T, action: Action) => T
 type Pair<T> = [ActionType, Reducer<T>]
 
-const createReducer = function<T>(initialState: T, pairs: Pair<T>[]) {
+/**
+ * @func
+ * @sig ([[ String | Symbol, (state, action) -> state ]], InitialState) -> (state, action) -> state
+ * @param {Any} initialState - the initial state for reducer
+ * @param {Array} pairs - A list of [actionType, handler]
+ * @return {Function} (state, action) -> state
+ * @example reducer.js
+ * inspired by RamdaJS function "cond"
+ */
+const createReducer = function<T>(
+  initialState: T,
+  pairs: Pair<T>[]
+): Reducer<T> {
   invariant(
     Array.isArray(pairs),
     'The pairs (first argument) must be a list of [actionType, handler]'
