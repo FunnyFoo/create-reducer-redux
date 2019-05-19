@@ -2,7 +2,7 @@ import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import typescript from 'rollup-plugin-typescript'
 import replace from 'rollup-plugin-replace'
-import uglify from 'rollup-plugin-uglify'
+import { uglify } from 'rollup-plugin-uglify'
 
 const ENV = process.env.NODE_ENV
 
@@ -17,12 +17,10 @@ if (ENV === 'es' || ENV === 'cjs') {
 }
 
 if (ENV === 'development' || ENV === 'production') {
-  config.output = { format: 'umd' }
-  config.name = 'createReducer'
+  config.output = { format: 'umd', name: 'createReducer' }
   config.plugins.push(
     nodeResolve({
-      jsnext: true,
-      main: true
+      mainFields: ['jsnext:main', 'main']
     }),
     typescript({ module: 'CommonJS' }),
     commonjs({ extensions: ['.js', '.ts'] }),
@@ -38,9 +36,9 @@ if (ENV === 'production') {
       compress: {
         pure_getters: true,
         unsafe: true,
-        unsafe_comps: true,
-        warnings: false
-      }
+        unsafe_comps: true
+      },
+      warnings: false
     })
   )
 }
