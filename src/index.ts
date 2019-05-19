@@ -1,5 +1,5 @@
 import invariant from 'invariant'
-import { isRegExp } from 'lodash'
+import isRegExp from 'lodash/isRegExp'
 
 type ActionType = string | RegExp
 type Action = {
