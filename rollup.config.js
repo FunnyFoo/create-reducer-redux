@@ -1,53 +1,45 @@
-import nodeResolve from "rollup-plugin-node-resolve"
-import commonjs from "rollup-plugin-commonjs"
-import babel from "rollup-plugin-babel"
-import replace from "rollup-plugin-replace"
-import uglify from "rollup-plugin-uglify"
+import nodeResolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import typescript from 'rollup-plugin-typescript'
+import replace from 'rollup-plugin-replace'
+import { uglify } from 'rollup-plugin-uglify'
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
 const ENV = process.env.NODE_ENV
 
 const config = {
-  input: "src/index.js",
-  plugins: []
+  input: 'src/index.ts',
+  plugins: [sizeSnapshot()]
 }
 
-if (ENV === "es" || ENV === "cjs") {
+if (ENV === 'es' || ENV === 'cjs') {
   config.output = { format: ENV }
-  config.plugins.push(
-    babel({
-      plugins: ["external-helpers"]
-    })
-  )
+  config.plugins.push(typescript())
 }
 
-if (ENV === "development" || ENV === "production") {
-  config.output = { format: "umd" }
-  config.name = "createReducer"
+if (ENV === 'development' || ENV === 'production') {
+  config.output = { format: 'umd', name: 'createReducer' }
   config.plugins.push(
     nodeResolve({
-      jsnext: true,
-      main: true
+      mainFields: ['jsnext:main', 'main']
     }),
-    commonjs(),
-    babel({
-      exclude: "node_modules/**",
-      plugins: ["external-helpers"]
-    }),
+    typescript({ module: 'CommonJS' }),
+    commonjs({ extensions: ['.js', '.ts'] }),
     replace({
-      "process.env.NODE_ENV": JSON.stringify(ENV)
+      'process.env.NODE_ENV': JSON.stringify(ENV)
     })
   )
 }
 
-if (ENV === "production") {
+if (ENV === 'production') {
   config.plugins.push(
     uglify({
       compress: {
         pure_getters: true,
         unsafe: true,
-        unsafe_comps: true,
-        warnings: false
-      }
+        unsafe_comps: true
+      },
+      warnings: false
     })
   )
 }

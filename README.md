@@ -8,6 +8,7 @@
 A redux reducer using the tuple like `[ type, handler ]` instead of `switch` statement.
 
 ## Install
+
 ```bash
 npm install --save @funnyfoo/create-reducer-redux
 # or
@@ -15,6 +16,7 @@ yarn add @funnyfoo/create-reducer-redux
 ```
 
 ## Usage
+
 ```js
 import createReducer from '@funnyfoo/create-reducer-redux'
 
@@ -26,13 +28,13 @@ const Types = {
 
 const increment = function() {
   return {
-    type: Types.INCREMENT,
+    type: Types.INCREMENT
   }
 }
 
 const decrement = function() {
   return {
-    type: Types.DECREMENT,
+    type: Types.DECREMENT
   }
 }
 
@@ -48,28 +50,30 @@ const dec = x => x - 1
 
 const initialState = 0
 
-const reducer = createReducer([
-  [ Types.INCREMENT, inc ],
-  [ Types.DECREMENT, dec ],
-  [ Types.ADDITION, (state, action) => state + action.payload ],
-], initialState)
+const reducer = createReducer(initialState, [
+  [Types.INCREMENT, inc],
+  [Types.DECREMENT, dec],
+  [Types.ADDITION, (state, action) => state + action.payload]
+])
 
-let state;
-state = reducer(state, addX(12))  // => 12
-state = reducer(state, decrement())  // => 11
-state = reducer(state, { type: 'other' })  // => 11
-
+let state
+state = reducer(state, addX(12)) // => 12
+state = reducer(state, decrement()) // => 11
+state = reducer(state, { type: 'other' }) // => 11
 ```
 
 ## API
 
 ### `createReducer(pairs, initialState)`
+
 Create a redux reducer with the initial state and a list of tuple of action type and handler
 
 #### Arguments
-`{Array}` `pairs`: A list of [ `ActionType`, `Handler` ], `Handler` is a function with the two arguments `state`, `action`.
 
 `{Any}` `initialState`: the initial state for the reducer
 
+`{Array}` `pairs`: A list of [ `ActionType`, `Handler` ], `Handler` is a function with the two arguments `state`, `action`.
+
 #### Returns
+
 `{Function}`: returns a function with two arguments `state`, `action`
