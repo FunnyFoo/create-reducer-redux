@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.2.0](https://github.com/FunnyFoo/create-reducer-redux/compare/v1.0.5...v1.2.0) (2019-06-21)
+
+
+### Features
+
+* action types support regular expression ([def2f59](https://github.com/FunnyFoo/create-reducer-redux/commit/def2f59))
+
+
 
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/FunnyFoo/create-reducer-redux/compare/v1.0.5...v1.1.1) (2018-05-03)
