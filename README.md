@@ -64,7 +64,7 @@ state = reducer(state, { type: 'other' }) // => 11
 
 ## API
 
-### `createReducer(pairs, initialState)`
+### `createReducer(initialState, pairs)`
 
 Create a redux reducer with the initial state and a list of tuple of action type and handler
 
