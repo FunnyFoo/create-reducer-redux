@@ -1,52 +1,51 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import { uglify } from 'rollup-plugin-uglify';
+import nodeResolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import babel from "rollup-plugin-babel";
+import replace from "rollup-plugin-replace";
+import { uglify } from "rollup-plugin-uglify";
 
 const ENV = process.env.NODE_ENV;
 
 const config = {
-  input: 'src/index.js',
-  plugins: []
+  input: "src/index.js",
+  plugins: [],
 };
 
-if (ENV === 'es' || ENV === 'cjs') {
+if (ENV === "es" || ENV === "cjs") {
   config.output = { format: ENV };
   config.plugins.push(
     babel({
-      externalHelpers: true
+      externalHelpers: true,
     })
   );
 }
 
-if (ENV === 'development' || ENV === 'production') {
-  config.output = { format: 'umd', name: 'createReducer' };
+if (ENV === "development" || ENV === "production") {
+  config.output = { format: "umd", name: "createReducer" };
   config.plugins.push(
     nodeResolve({
-      jsnext: true,
-      main: true
+      mainFields: ["main", "jsnext:main"],
     }),
     commonjs(),
     babel({
-      exclude: 'node_modules/**',
-      externalHelpers: true
+      exclude: "node_modules/**",
+      externalHelpers: true,
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify(ENV)
+      "process.env.NODE_ENV": JSON.stringify(ENV),
     })
   );
 }
 
-if (ENV === 'production') {
+if (ENV === "production") {
   config.plugins.push(
     uglify({
       compress: {
         pure_getters: true,
         unsafe: true,
-        unsafe_comps: true
+        unsafe_comps: true,
       },
-      warnings: false
+      warnings: false,
     })
   );
 }
